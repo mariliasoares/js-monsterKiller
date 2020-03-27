@@ -13,7 +13,7 @@ adjustHealthBars(chosenMaxLife);
 function reset() {
   currentMonsterHealth = chosenMaxLife;
   currentPlayerHealth = chosenMaxLife;
-  resetGame();
+  resetGame(chosenMaxLife);
 }
 
 function endRound() {
@@ -36,6 +36,11 @@ function endRound() {
   } else if(currentMonsterHealth <= 0 && currentPlayerHealth <= 0) {
     alert('Draw game!');
   }
+
+  if(currentMonsterHealth <= 0 || currentPlayerHealth <= 0) {
+    reset();
+  }
+
 }
 
 function attackMonster(mode) {
